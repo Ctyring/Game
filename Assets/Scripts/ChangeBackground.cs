@@ -7,18 +7,30 @@ public class ChangeBackground : MonoBehaviour
     // 背景数组
     public GameObject[] backgrounds;
     
-    public void OnRoom1Enter()
+    // 切换背景函数
+    public void changeBackgroundToRoom1()
     {
         // 切换背景
         backgrounds[0].SetActive(true);
         backgrounds[1].SetActive(false);
     }
     
-    public void OnRoom2Enter()
+    public void changeBackgroundToRoom2()
     {
         // 切换背景
         backgrounds[0].SetActive(false);
         backgrounds[1].SetActive(true);
+    }
+    
+    
+    public void OnRoom1Enter()
+    {
+        Invoke(nameof(changeBackgroundToRoom1), 0.6f);
+    }
+    
+    public void OnRoom2Enter()
+    {
+        Invoke(nameof(changeBackgroundToRoom2), 0.6f);
     }
     // Start is called before the first frame update
     void Start()
