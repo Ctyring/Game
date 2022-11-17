@@ -6341,8 +6341,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InitialWeapon: {fileID: 114000010078180980, guid: a526816ccb05b4d45b5e05608ef451dc,
-    type: 3}
+  InitialWeapon: {fileID: 0}
   CanPickupWeapons: 0
   WeaponAttachment: {fileID: 0}
   ForceWeaponScaleResetOnEquip: 0
@@ -6427,8 +6426,8 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   PlayerID: Player1
-  MainInventoryName: RetroInventory
-  WeaponInventoryName: RetroWeaponInventory
+  MainInventoryName: MainInventory
+  WeaponInventoryName: WeaponInventory
   HotbarInventoryName: 
   AutoEquipWeaponOnCharacterSwitch: 0
   WeaponRotationMode: 0
