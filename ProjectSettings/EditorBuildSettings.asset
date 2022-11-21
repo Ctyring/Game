@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/CorgiEngine/Demos/StartScreen/SplashScreen.unity
     guid: 7b96552fd1198fa4eaae54a2f975645e
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
     guid: 888394d52616e5e42b3b54c3f2bbd3eb
   - enabled: 1
     path: Assets/CorgiEngine/Demos/StartScreen/StartScreen.unity
     guid: b9cf7e391a5874f80a0485164885fe54
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreen.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreen.unity
     guid: d89b77a7a68c1844280c6ff2e49f95b8
   - enabled: 1
     path: Assets/CorgiEngine/Demos/LevelSelection/LevelSelection.unity
@@ -216,12 +216,15 @@ EditorBuildSettings:
     path: Assets/CorgiEngine/Demos/RetroAdventure/RetroAdventureGameOver.unity
     guid: aba2daab4ea9f82428c58d957862f82d
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenBigText.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenBigText.unity
     guid: dedb2bed56a01c241be42c5c5b5748ca
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenFastFade.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenFastFade.unity
     guid: 8101c376367d6e44f84e602722e5ac10
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenSimple.unity
+    path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenSimple.unity
     guid: 945e5b97212e8e74ebcd35bddde3970c
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: f81e1f6e702e0f849982aaebeab36825
   m_configObjects: {}

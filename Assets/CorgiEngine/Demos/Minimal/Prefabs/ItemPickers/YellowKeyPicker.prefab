@@ -48,6 +48,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -59,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -71,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b57f93bb98b9d9439a6df3f6e15b671, type: 3}
+  m_Sprite: {fileID: 21300012, guid: f3f4293ccdddd34468f58745d608416e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.89, y: 0.7}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.89, y: 0.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -122,12 +125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: c3b3c98f0be356e4cad5d29b9fd2c07a, type: 2}
   Quantity: 3
+  RemainingQuantity: 1
   PickableIfInventoryIsFull: 0
-  PickAsMuchQuantityAsPossible: 1
   DisableObjectWhenDepleted: 1
-  Effect: {fileID: 100000, guid: d6f0719e1f6f54cadbc5c666ead13643, type: 3}
-  PickSfx: {fileID: 8300000, guid: 53d7a3adf877b4b72b7ec879fd0c0c75, type: 3}
   PickFeedbacks: {fileID: 7074750426732997653}
+  ResetQuantityOnPlayerRespawn: 1
 --- !u!1 &1589692372092694870
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +179,42 @@ MonoBehaviour:
   - {fileID: 3373940197177830885}
   - {fileID: 6091737576532786060}
   InitializationMode: 2
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 1
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 1
+  ChanceToPlay: 100
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!114 &3373940197177830885
 MonoBehaviour:
@@ -192,17 +230,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Particles Instantiation
+  Chance: 100
   Timing:
+    TimescaleMode: 0
+    ExcludeFromHoldingPauses: 0
+    ContributeToTotalDuration: 1
     InitialDelay: 0
     CooldownDuration: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
   Mode: 1
+  CachedRecycle: 1
   ParticlesPrefab: {fileID: 19800000, guid: d6f0719e1f6f54cadbc5c666ead13643, type: 3}
+  RandomParticlePrefabs: []
+  ForceSetActiveOnPlay: 0
+  PositionMode: 0
   InstantiateParticlesPosition: {fileID: 0}
+  TargetWorldPosition: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: 0}
   NestParticles: 0
+  ApplyRotation: 0
+  ApplyScale: 0
 --- !u!114 &6091737576532786060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,18 +278,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   Label: Sound
+  Chance: 100
   Timing:
+    TimescaleMode: 0
+    ExcludeFromHoldingPauses: 0
+    ContributeToTotalDuration: 1
     InitialDelay: 0
     CooldownDuration: 0
+    InterruptsOnStop: 1
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
   DebugActive: 0
   Sfx: {fileID: 8300000, guid: 53d7a3adf877b4b72b7ec879fd0c0c75, type: 3}
   RandomSfx: []
+  TestButton: 0
+  TestStopButton: 0
   PlayMethod: 0
+  PoolSize: 10
   MinVolume: 1
   MaxVolume: 1
   MinPitch: 1
   MaxPitch: 1
   SfxAudioMixerGroup: {fileID: 0}
+  Priority: 128

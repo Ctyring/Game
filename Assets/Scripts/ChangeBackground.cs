@@ -13,6 +13,7 @@ public class ChangeBackground : MonoBehaviour
         // 切换背景
         backgrounds[0].SetActive(true);
         backgrounds[1].SetActive(false);
+        backgrounds[2].SetActive(false);
     }
     
     public void changeBackgroundToRoom2()
@@ -20,8 +21,16 @@ public class ChangeBackground : MonoBehaviour
         // 切换背景
         backgrounds[0].SetActive(false);
         backgrounds[1].SetActive(true);
+        backgrounds[2].SetActive(false);
     }
     
+    public void changeBackgroundToRoom3()
+    {
+        // 切换背景
+        backgrounds[0].SetActive(false);
+        backgrounds[1].SetActive(false);
+        backgrounds[2].SetActive(true);
+    }
     
     public void OnRoom1Enter()
     {
@@ -31,6 +40,11 @@ public class ChangeBackground : MonoBehaviour
     public void OnRoom2Enter()
     {
         Invoke(nameof(changeBackgroundToRoom2), 0.6f);
+    }
+    
+    public void OnRoom3Enter()
+    {
+        Invoke(nameof(changeBackgroundToRoom3), 0.6f);
     }
     // Start is called before the first frame update
     void Start()
