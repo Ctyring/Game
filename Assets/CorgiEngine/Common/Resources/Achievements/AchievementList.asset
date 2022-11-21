@@ -74,3 +74,27 @@ MonoBehaviour:
     UnlockedSound: {fileID: 0}
     ProgressTarget: 0
     ProgressCurrent: 0
+  - AchievementID: Mesa!
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
+    Title: Mesa!
+    Description: Clear Mesa
+    Points: 25
+    LockedImage: {fileID: 21300010, guid: fa6d364a5a0575245859952062aea14b, type: 3}
+    UnlockedImage: {fileID: 21300002, guid: fa6d364a5a0575245859952062aea14b, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 0
+    ProgressCurrent: 0
+  - AchievementID: Mountains!
+    AchievementType: 0
+    HiddenAchievement: 0
+    UnlockedStatus: 1
+    Title: Mountains!
+    Description: Clear Mountains!
+    Points: 25
+    LockedImage: {fileID: 21300010, guid: fa6d364a5a0575245859952062aea14b, type: 3}
+    UnlockedImage: {fileID: 21300000, guid: fa6d364a5a0575245859952062aea14b, type: 3}
+    UnlockedSound: {fileID: 0}
+    ProgressTarget: 0
+    ProgressCurrent: 0
