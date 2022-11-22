@@ -6351,7 +6351,7 @@ MonoBehaviour:
   ContinuousPress: 0
   GettingHitInterruptsAttack: 0
   CanShootFromLadders: 0
-  FaceWeaponDirection: 0
+  FaceWeaponDirection: 1
   InvertHorizontalAimWhenWallclinging: 0
   BufferInput: 0
   NewInputExtendsBuffer: 0
