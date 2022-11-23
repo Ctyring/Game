@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,27 +13,80 @@ MonoBehaviour:
   m_Name: RetroShotgun
   m_EditorClassIdentifier: 
   ItemID: RetroShotgun
-  TargetInventoryName: RetroInventory
+  TargetInventoryName: MainInventory
+  ForceSlotIndex: 0
+  TargetIndex: 0
   Usable: 0
+  Consumable: 1
+  ConsumeQuantity: 1
   Equippable: 1
+  MoveWhenEquipped: 1
+  Droppable: 1
+  CanMoveObject: 1
+  CanSwapObject: 1
+  DisplayProperties:
+    DisplayEquipUseButton: 1
+    DisplayMoveButton: 1
+    DisplayDropButton: 1
+    DisplayEquipButton: 1
+    DisplayUseButton: 1
+    DisplayUnequipButton: 1
   Quantity: 1
   ItemName: Shotgun
   ShortDescription: Everybody jumps from the sound of the shotgun.
   Description: A smooth-bore gun for firing small shot at short range.
-  CanMoveObject: 1
-  CanSwapObject: 1
   Icon: {fileID: 21300026, guid: f3f4293ccdddd34468f58745d608416e, type: 3}
-  Prefab: {fileID: 1472130053336478, guid: 07b05b507c0d7416b95d884c8f8f9a89, type: 2}
-  SpawnShape: 1
-  PrefabDropMinDistance: {x: 2, y: 2, z: 0}
-  PrefabDropMaxDistance: {x: 3, y: 3, z: 0}
+  Prefab: {fileID: 1472130053336478, guid: 07b05b507c0d7416b95d884c8f8f9a89, type: 3}
+  DropProperties:
+    Shape: 0
+    NormalToSpawnPlane: {x: 0, y: 1, z: 0}
+    MinimumSphereRadius: 1
+    MaximumSphereRadius: 2
+    MinimumCubeBaseSize: {x: 1, y: 1, z: 1}
+    MaximumCubeBaseSize: {x: 2, y: 2, z: 2}
+    MinimumNormalAxisOffset: 0
+    MaximumNormalAxisOffset: 0
+    UseNormalAxisOffsetCurve: 0
+    NormalOffsetCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    NormalOffsetCurveRemapZero: 0
+    NormalOffsetCurveRemapOne: 1
+    InvertNormalOffsetCurve: 0
+    MinimumRotation: {x: 0, y: 0, z: 0}
+    MaximumRotation: {x: 0, y: 0, z: 0}
+    MinimumScale: {x: 1, y: 1, z: 1}
+    MaximumScale: {x: 1, y: 1, z: 1}
   MaximumStack: 1
   ItemClass: 2
-  TargetEquipmentInventoryName: RetroWeaponInventory
+  TargetEquipmentInventoryName: WeaponInventory
   EquippedSound: {fileID: 0}
   UsedSound: {fileID: 0}
   MovedSound: {fileID: 0}
   DroppedSound: {fileID: 0}
   UseDefaultSoundsIfNull: 1
   EquippableWeapon: {fileID: 114000010078180980, guid: 415ce45e0a1ee45df942cde94fe0aa5f,
-    type: 2}
+    type: 3}
+  AutoEquipMode: 0
+  HandleWeaponID: 1
