@@ -6847,12 +6847,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c1a8bab4d234998bcbc559bb58fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 4233305423481382865}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  NumberOfJumps: 2
+  NumberOfJumps: 3
   JumpHeight: 3.025
   JumpRestrictions: 2
   ResetCameraOffsetOnJump: 0
@@ -6864,7 +6864,7 @@ MonoBehaviour:
   InputBufferDuration: 0
   OneWayPlatformsJumpCollisionOffDuration: 0.3
   MovingPlatformsJumpCollisionOffDuration: 0.05
-  AirJumpFeedbacks: {fileID: 0}
+  AirJumpFeedbacks: {fileID: 4409709902870722065}
   DoubleJumpFeedbacks: {fileID: 0}
   NumberOfJumpsLeft: 0
 --- !u!114 &114000011984144346
@@ -6919,7 +6919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd71e945bfcd4897b3a95607989c7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 1748557198096608409}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
@@ -43371,7 +43371,7 @@ MonoBehaviour:
     TargetBPM: 120
   DebugActive: 0
   Mode: 0
-  BoundParticleSystem: {fileID: 0}
+  BoundParticleSystem: {fileID: 163180389710745748}
   RandomParticleSystems: []
   MoveToPosition: 0
   ActivateOnPlay: 0
@@ -43439,7 +43439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4343612220183485634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09600067, y: -1.005, z: 0}
+  m_LocalPosition: {x: -0.09600067, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942618530878517750}
@@ -48242,7 +48242,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340aa44c0ea9d9d44b74192ffdf2e2d9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48312,7 +48311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4376187166648658110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.094, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0, y: -0.39, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 8982254654039442263}
@@ -58706,7 +58705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000723464485417352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.0516665, z: 0}
+  m_LocalPosition: {x: -1.24, y: -1.72, z: 0}
   m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 3.333333}
   m_Children:
   - {fileID: 8758084920095174586}

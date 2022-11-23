@@ -6344,7 +6344,7 @@ GameObject:
   - component: {fileID: 11409634}
   - component: {fileID: 114000014111650030}
   - component: {fileID: 114000011227704004}
-  - component: {fileID: 114000011911041156}
+  - component: {fileID: 6697401900681663862}
   - component: {fileID: 114000013573007266}
   - component: {fileID: 11428732}
   - component: {fileID: 114000011284003036}
@@ -6642,7 +6642,7 @@ MonoBehaviour:
   InATunnel: 0
   MoveCameraTarget: 1
   CameraTargetOffset: {x: 0, y: -3, z: 0}
---- !u!114 &114000011911041156
+--- !u!114 &6697401900681663862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6651,7 +6651,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 185322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2bb48ea7e7fc4c0fa43dce17235f4f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e12507b9c91bd542b1b569babe3b98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityStartFeedbacks: {fileID: 1154369279579109284}
@@ -6659,7 +6659,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  DashDistance: 5
+  DashDistance: 3
   DashForce: 40
   ResetForcesOnExit: 0
   ForceExactDistance: 0
@@ -6679,7 +6679,8 @@ MonoBehaviour:
   SuccessiveDashesLeft: 1
   SuccessiveDashResetMethod: 0
   SuccessiveDashResetDuration: 2
-  InvincibleWhileDashing: 0
+  InvincibleWhileDashing: 1
+  TargetDamageOnTouch: {fileID: 0}
 --- !u!114 &114000013573007266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6692,8 +6693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157b891c059034cea94ae0c9e235df50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 5738351354057960943}
-  AbilityStopFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 5738351354057960943}
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
@@ -6783,7 +6784,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  NumberOfJumps: 2
+  NumberOfJumps: 3
   JumpHeight: 3.025
   JumpRestrictions: 2
   ResetCameraOffsetOnJump: 0
@@ -6967,8 +6968,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InitialWeapon: {fileID: 114000010078180980, guid: 923d96820c0ee6a4c8380f1a2b0a4600,
-    type: 3}
+  InitialWeapon: {fileID: 0}
   CanPickupWeapons: 0
   WeaponAttachment: {fileID: 404558}
   ForceWeaponScaleResetOnEquip: 0
@@ -6978,7 +6978,7 @@ MonoBehaviour:
   ContinuousPress: 0
   GettingHitInterruptsAttack: 0
   CanShootFromLadders: 0
-  FaceWeaponDirection: 0
+  FaceWeaponDirection: 1
   InvertHorizontalAimWhenWallclinging: 0
   BufferInput: 0
   NewInputExtendsBuffer: 0
@@ -18104,7 +18104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880914965007728467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.094, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0, y: -0.39, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 8439399379943757367}
@@ -58155,7 +58155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6306976198069142115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09600067, y: -1.005, z: 0}
+  m_LocalPosition: {x: -0.09600067, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3709080796216930122}
@@ -62958,7 +62958,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340aa44c0ea9d9d44b74192ffdf2e2d9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
