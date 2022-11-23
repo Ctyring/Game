@@ -7035,8 +7035,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InitialWeapon: {fileID: 114000010078180980, guid: a526816ccb05b4d45b5e05608ef451dc,
-    type: 3}
+  InitialWeapon: {fileID: 0}
   CanPickupWeapons: 0
   WeaponAttachment: {fileID: 6205547778818689054}
   ForceWeaponScaleResetOnEquip: 0
@@ -88509,7 +88508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7673336988017853182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29, y: 0.83, z: 0}
+  m_LocalPosition: {x: 0.01, y: 0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 434072}
