@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.CorgiEngine;
+using MoreMountains.Tools;
 using UnityEngine;
 
 public class SelectPlayer : MonoBehaviour
@@ -26,8 +27,7 @@ public class SelectPlayer : MonoBehaviour
     public void OnEnsure()
     {
         Global.playerId = id;
-        // 场景
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Demo");
+        MMSceneLoadingManager.LoadScene("Demo", "LoadingScreen");
     }
     // Start is called before the first frame update
     void Start()
