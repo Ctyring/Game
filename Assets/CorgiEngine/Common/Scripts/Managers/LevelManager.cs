@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Codice.Client.BaseCommands.Config;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -56,7 +57,7 @@ namespace MoreMountains.CorgiEngine
 		/// the prefab you want for your player
 		[Header("Instantiate Characters")]
 		[MMInformation("The LevelManager is responsible for handling spawn/respawn, checkpoints management and level bounds. Here you can define one or more playable characters for your level..",MMInformationAttribute.InformationType.Info,false)]
-
+		public Character[] CanSelectPlayers;
 		/// the list of player prefabs to instantiate
 		[Tooltip("the list of player prefabs to instantiate")]
 		public Character[] PlayerPrefabs ;
@@ -173,6 +174,7 @@ namespace MoreMountains.CorgiEngine
 			_originalBounds = LevelBounds;
 		}
 
+		
 		/// <summary>
 		/// Instantiate playable characters based on the ones specified in the PlayerPrefabs list in the LevelManager's inspector.
 		/// </summary>
@@ -204,6 +206,10 @@ namespace MoreMountains.CorgiEngine
 				return;
 			}
 
+			if (CanSelectPlayers.Length != 0)
+			{
+				PlayerPrefabs[0] = CanSelectPlayers[Global.playerId];
+			}
 			if (PlayerPrefabs == null) { return; }
 
 			// player instantiation

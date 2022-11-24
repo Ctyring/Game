@@ -13729,6 +13729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467538037}
   - component: {fileID: 467538036}
+  - component: {fileID: 467538039}
   m_Layer: 21
   m_Name: LevelManager
   m_TagString: Untagged
@@ -13748,6 +13749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fcac034e6398d42ac254095d9b2d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanSelectPlayers:
+  - {fileID: 11400450, guid: 258bb621ae72847a19516ca96017594d, type: 3}
+  - {fileID: 11435408, guid: 5d8f0b4f366df4f328e9cf5153698263, type: 3}
+  - {fileID: 11409634, guid: 754e4c7874aa84596afc7a334e69d9d1, type: 3}
+  - {fileID: 11400776, guid: 4f0313778c85b456b8f7334cd64e38e4, type: 3}
   PlayerPrefabs:
   - {fileID: 11409634, guid: 754e4c7874aa84596afc7a334e69d9d1, type: 3}
   AutoAttributePlayerIDs: 1
@@ -13844,6 +13850,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &467538039
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467538035}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 474, y: 30, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &468610290
 GameObject:
   m_ObjectHideFlags: 0
