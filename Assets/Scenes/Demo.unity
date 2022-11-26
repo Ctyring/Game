@@ -13750,10 +13750,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanSelectPlayers:
-  - {fileID: 11400450, guid: 258bb621ae72847a19516ca96017594d, type: 3}
-  - {fileID: 11435408, guid: 5d8f0b4f366df4f328e9cf5153698263, type: 3}
-  - {fileID: 11409634, guid: 754e4c7874aa84596afc7a334e69d9d1, type: 3}
   - {fileID: 11400776, guid: 4f0313778c85b456b8f7334cd64e38e4, type: 3}
+  - {fileID: 11435408, guid: 5d8f0b4f366df4f328e9cf5153698263, type: 3}
+  - {fileID: 11400450, guid: 258bb621ae72847a19516ca96017594d, type: 3}
+  - {fileID: 11409634, guid: 754e4c7874aa84596afc7a334e69d9d1, type: 3}
   PlayerPrefabs:
   - {fileID: 11409634, guid: 754e4c7874aa84596afc7a334e69d9d1, type: 3}
   AutoAttributePlayerIDs: 1
