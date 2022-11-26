@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Init.unity
+    guid: 5772c611f1f956b4ab9bfdb85dc1552f
+  - enabled: 1
     path: Assets/CorgiEngine/Demos/StartScreen/SplashScreen.unity
     guid: 7b96552fd1198fa4eaae54a2f975645e
   - enabled: 1
@@ -225,6 +228,9 @@ EditorBuildSettings:
     path: Assets/Feel/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenSimple.unity
     guid: 945e5b97212e8e74ebcd35bddde3970c
   - enabled: 1
-    path: Assets/Scenes/Demo.unity
+    path: Assets/HotUpdateResources/Scene/Demo.unity
     guid: f81e1f6e702e0f849982aaebeab36825
+  - enabled: 1
+    path: Assets/HotUpdateResources/Scene/SelectPlayer.unity
+    guid: 3a00beb53a759c54593dd057c848af5d
   m_configObjects: {}

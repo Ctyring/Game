@@ -18,9 +18,9 @@ public class SelectPlayer : MonoBehaviour
         else
         {
             selected.SetActive(true);
-            selected.transform.localPosition = new Vector3(-384 + id * (256), -275, 0);
+            selected.transform.localPosition = new Vector3(-384 + id * (256), -212, 0);
         }
-        targetPos = new Vector3(-384 + id * (256), -275, 0);
+        targetPos = new Vector3(-384 + id * (256), -212, 0);
         this.id = id;
     }
     

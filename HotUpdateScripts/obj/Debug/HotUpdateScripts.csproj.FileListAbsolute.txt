@@ -1,0 +1,14 @@
+D:\Game\ShootingGame\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.dll
+D:\Game\ShootingGame\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.pdb
+D:\Game\ShootingGame\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.AssemblyReference.cache
+D:\Game\ShootingGame\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CoreCompileInputs.cache
+D:\Game\ShootingGame\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CopyComplete
+D:\Game\ShootingGame\HotUpdateScripts\obj\Debug\HotUpdateScripts.dll
+D:\Game\ShootingGame\HotUpdateScripts\obj\Debug\HotUpdateScripts.pdb
+E:\Game\Demo\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.dll
+E:\Game\Demo\Assets\HotUpdateResources\Dll\Hidden~\HotUpdateScripts.pdb
+E:\Game\Demo\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.AssemblyReference.cache
+E:\Game\Demo\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CoreCompileInputs.cache
+E:\Game\Demo\HotUpdateScripts\obj\Debug\HotUpdateScripts.csproj.CopyComplete
+E:\Game\Demo\HotUpdateScripts\obj\Debug\HotUpdateScripts.dll
+E:\Game\Demo\HotUpdateScripts\obj\Debug\HotUpdateScripts.pdb
