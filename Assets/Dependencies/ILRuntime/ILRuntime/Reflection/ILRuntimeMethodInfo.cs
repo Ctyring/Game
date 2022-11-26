@@ -62,15 +62,8 @@ namespace ILRuntime.Reflection
             get
             {
                 MethodAttributes ma = MethodAttributes.Public;
-                if (definition.IsPrivate)
-                    ma = MethodAttributes.Private;
-                else if (definition.IsFamily)
-                    ma = MethodAttributes.Family;
                 if (method.IsStatic)
                     ma |= MethodAttributes.Static;
-                if (method.IsVirtual)
-                    ma |= MethodAttributes.Virtual;
-            
                 return ma;
             }
         }
@@ -178,14 +171,10 @@ namespace ILRuntime.Reflection
         {
             get
             {
-                if (method.ReturnType != null)
-                    return method.ReturnType.ReflectionType;
-                else
-                    return null;
+                return method.ReturnType?.ReflectionType;
             }
         }
 
-#if NET_4_6 || NET_STANDARD_2_0
         public override Delegate CreateDelegate(Type delegateType)
         {
             throw new NotSupportedException("please use CreateDelegate(Type delegateType, object target)");
@@ -220,6 +209,5 @@ namespace ILRuntime.Reflection
             }
             return del.GetConvertor(delegateType);
         }
-#endif
     }
 }

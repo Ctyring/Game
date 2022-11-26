@@ -249,28 +249,15 @@ namespace JEngine.Helper
                 }
             }
 
-            //注册FindObject(s)OfType
+            //注册Instantiate和其他的
             var objectType = typeof(UnityEngine.Object);
-            args = new Type[]{typeof(System.Type)};
-            var findObjectsOfTypeMethod2 = objectType.GetMethod("FindObjectsOfType", flag, null, args, null);
-            appdomain.RegisterCLRMethodRedirection(findObjectsOfTypeMethod2, FindObjectsOfType_11);
-            var findObjectsOfTypeMethod = objectType.GetMethods().ToList().FindAll(f => f.Name == "FindObjectsOfType" && f.IsGenericMethod);
+
+            var findObjectsOfTypeMethod = objectType.GetMethods().ToList().FindAll(f => f.Name == "FindObjectsOfType");
             foreach (var methodInfo in findObjectsOfTypeMethod)
             {
                 appdomain.RegisterCLRMethodRedirection(methodInfo, FindObjectsOfType_10);
             }
-            
-            args = new Type[]{typeof(System.Type)};
-            var findObjectOfTypeMethod2 = objectType.GetMethod("FindObjectOfType", flag, null, args, null);
-            appdomain.RegisterCLRMethodRedirection(findObjectOfTypeMethod2, FindObjectOfType_11);
-            var findObjectOfTypeMethod = objectType.GetMethods().ToList().FindAll(f => f.Name == "FindObjectOfType" && f.IsGenericMethod);
-            foreach (var methodInfo in findObjectOfTypeMethod)
-            {
-                appdomain.RegisterCLRMethodRedirection(methodInfo, FindObjectOfType_10);
-            }
-            
 
-            //注册Instantiate和其他的
             var instantiateMethod = objectType.GetMethod("Instantiate", flag, null, args, null);
             var allMethods = objectType.GetMethods().ToList().FindAll(f => f.Name == "Instantiate");
             //GameObject的方便点，不需要再去Get类型
@@ -2490,20 +2477,11 @@ namespace JEngine.Helper
             else
             {
                 //热更DLL内的类型比较麻烦。首先我们得自己手动创建实例
-                if (!InitJEngine.Appdomain.LoadedTypes.TryGetValue(type.FullName, out type))
-                {
-                    throw new KeyNotFoundException();
-                }
                 ILTypeInstance ilInstance = new ILTypeInstance(type as ILType, false);
                 Type t = type.ReflectionType;
-                Type baseType =
-                    t.BaseType is ILRuntimeWrapperType wrapperType
-                        ? wrapperType.RealType
-                        : t.BaseType; //这个地方太坑了 你一旦热更工程代码写的骚 就会导致ILWrapperType这个问题出现 一般人还真不容易发现这个坑
-                bool needAdapter = baseType != null &&
-                                   baseType.GetInterfaces().Contains(typeof(CrossBindingAdaptorType));
+                bool isMonoAdapter = t.BaseType?.FullName == typeof(MonoBehaviourAdapter.Adaptor).FullName;
 
-                if (needAdapter && baseType != typeof(MonoBehaviourAdapter.Adaptor))
+                if (!isMonoAdapter && Type.GetType(t.BaseType?.FullName ?? string.Empty) != null)
                 {
                     Type adapterType = Type.GetType(t.BaseType?.FullName ?? string.Empty);
                     if (adapterType == null)
@@ -2514,22 +2492,15 @@ namespace JEngine.Helper
 
                     //直接反射赋值一波了
                     var clrInstance = instance.AddComponent(adapterType);
-                    var ilInsInfo = t.GetFields(
+                    var ILInstance = t.GetFields(
                             BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                         .First(f => f.Name == "instance" && f.FieldType == typeof(ILTypeInstance));
-                    var appDInfo = t.GetFields(
+                    var AppDomain = t.GetFields(
                             BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                         .First(f => f.Name == "appdomain" && f.FieldType == typeof(AppDomain));
-                    ilInsInfo.SetValue(clrInstance, ilInstance);
-                    appDInfo.SetValue(clrInstance, domain);
+                    ILInstance.SetValue(clrInstance, ilInstance);
+                    AppDomain.SetValue(clrInstance, domain);
                     ilInstance.CLRInstance = clrInstance;
-
-                    var m = type.GetConstructor(Extensions.EmptyParamList);
-                    if (m != null)
-                    {
-                        InitJEngine.Appdomain.Invoke(m, ilInstance, null);
-                    }
-                    
                     bool activated = false;
                     //不管是啥类型，直接invoke这个awake方法
                     var awakeMethod = clrInstance.GetType().GetMethod("Awake",
@@ -2567,17 +2538,25 @@ namespace JEngine.Helper
                     clrInstance.AppDomain = domain;
                     //这个实例默认创建的CLRInstance不是通过AddComponent出来的有效实例，所以得手动替换
                     ilInstance.CLRInstance = clrInstance;
-
-                    var m = type.GetConstructor(Extensions.EmptyParamList);
-                    if (m != null)
-                    {
-                        InitJEngine.Appdomain.Invoke(m, ilInstance, null);
-                    }
-                    
                     clrInstance.Awake(); //因为Unity调用这个方法时还没准备好所以这里补调一次
                 }
 
                 res = ilInstance;
+
+                if (type.BaseType.ReflectionType is ILRuntimeType)
+                {
+                    Core.Log.PrintWarning(
+                        "因为有跨域多层继承MonoBehaviour，会有一个可以忽略的警告：You are trying to create a MonoBehaviour using the 'new' keyword.  This is not allowed.  MonoBehaviours can only be added using AddComponent(). Alternatively, your script can inherit from ScriptableObject or no base class at all");
+                    type.ReflectionType.GetConstructor(new Type[] { })?.Invoke(res, new object[] { });
+                }
+                else
+                {
+                    var m = type.GetConstructor(Extensions.EmptyParamList);
+                    if (m != null)
+                    {
+                        domain.Invoke(m, res, null);
+                    }
+                }
             }
 
             return res;
@@ -2764,26 +2743,11 @@ namespace JEngine.Helper
                 if (type is CLRType)
                 {
                     //Unity主工程的类不需要任何特殊处理，直接调用Unity接口
-                    var result = instance != null ? instance.GetComponents(type.TypeForCLR) : null;
-                    res = result;
-                    if (result != null)
-                    {
-                        int n = result.Length;
-                        res = Array.CreateInstance(type.TypeForCLR, n);
-                        for (int i = 0; i < n; i++)
-                            ((Array) res).SetValue(result[i], i);
-                    }
+                    res = instance != null ? instance.GetComponent(type.TypeForCLR) : null;
                 }
                 else
                 {
-                    var ilInstances = ((ILTypeInstance[])Tools.GetHotComponent(
-                            instance,
-                            type as ILType))
-                        .Select(i => i.CLRInstance).ToArray();
-                    int n = ilInstances.Length;
-                    res = Array.CreateInstance(type.TypeForCLR, n);
-                    for (int i = 0; i < n; i++)
-                        ((Array) res).SetValue(ilInstances[i], i);
+                    res = Tools.GetHotComponent(instance, type as ILType);
                 }
 
                 return ILIntepreter.PushObject(ptr_of_this_method, __mStack, res);
@@ -2799,7 +2763,7 @@ namespace JEngine.Helper
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var genericArgument = __method.GenericArguments;
-            //FindObjectsOfType应该有且只有1个泛型参数
+            //AddComponent应该有且只有1个泛型参数
             if (genericArgument != null && genericArgument.Length == 1)
             {
                 var type = genericArgument[0];
@@ -2811,7 +2775,7 @@ namespace JEngine.Helper
                 }
                 else
                 {
-                    var adapters = Tools.GetAllMonoAdapters();
+                    var adapters = Tools.FindObjectsOfTypeAll<CrossBindingAdaptorType>();
                     var ilInstances = ((ILTypeInstance[]) Tools.GetHotComponent(adapters, type as ILType))
                         .Select(i => i.CLRInstance).ToArray();
                     int n = ilInstances.Length;
@@ -2824,95 +2788,6 @@ namespace JEngine.Helper
             }
 
             return __esp;
-
-        }
-        
-        static unsafe StackObject* FindObjectsOfType_11(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack,
-            CLRMethod __method, bool isNewObj)
-        {
-            AppDomain __domain = __intp.AppDomain;
-            StackObject* __ret = ILIntepreter.Minus(__esp, 0);
-            
-            StackObject* ptr_of_this_method;
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.Type @type = (System.Type)typeof(System.Type).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack), 0);
-            __intp.Free(ptr_of_this_method);
-
-            object res;
-            if (type is ILRuntimeType ilType)
-            {
-                var adapters = Tools.GetAllMonoAdapters();
-                var ilInstances = ((ILTypeInstance[]) Tools.GetHotComponent(adapters, ilType.ILType))
-                    .Select(i => i.CLRInstance).ToArray();
-                int n = ilInstances.Length;
-                res = Array.CreateInstance(ilType.ILType.TypeForCLR, n);
-                for (int i = 0; i < n; i++)
-                    ((Array) res).SetValue(ilInstances[i], i);
-            }
-            else
-            {
-                res = UnityEngine.Object.FindObjectsOfType(type);
-            }
-
-            return ILIntepreter.PushObject(__ret, __mStack, res);
-
-        }
-        
-        static unsafe StackObject* FindObjectOfType_10(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack,
-            CLRMethod __method, bool isNewObj)
-        {
-            AppDomain __domain = __intp.AppDomain;
-            StackObject* __ret = ILIntepreter.Minus(__esp, 0);
-
-            var genericArgument = __method.GenericArguments;
-            //FindObjectsOfType应该有且只有1个泛型参数
-            if (genericArgument != null && genericArgument.Length == 1)
-            {
-                var type = genericArgument[0];
-                object res;
-
-                if (type is CLRType)
-                {
-                    res = UnityEngine.Object.FindObjectOfType(type.TypeForCLR);
-                }
-                else
-                {
-                    var adapters = Tools.GetAllMonoAdapters();
-                    var ilInstances = ((ILTypeInstance[]) Tools.GetHotComponent(adapters, type as ILType));
-                    res = ilInstances.Length > 0 ? ilInstances[0] : null;
-                }
-
-                return ILIntepreter.PushObject(__ret, __mStack, res);
-            }
-
-            return __esp;
-
-        }
-        
-        static unsafe StackObject* FindObjectOfType_11(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack,
-            CLRMethod __method, bool isNewObj)
-        {
-            AppDomain __domain = __intp.AppDomain;
-            StackObject* __ret = ILIntepreter.Minus(__esp, 0);
-            
-            StackObject* ptr_of_this_method;
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.Type @type = (System.Type)typeof(System.Type).CheckCLRTypes(StackObject.ToObject(ptr_of_this_method, __domain, __mStack), 0);
-            __intp.Free(ptr_of_this_method);
-
-            object res;
-            if (type is ILRuntimeType ilType)
-            {
-                var adapters = Tools.GetAllMonoAdapters();
-                var ilInstances = ((ILTypeInstance[]) Tools.GetHotComponent(adapters, ilType.ILType));
-                res = ilInstances.Length > 0 ? ilInstances[0] : null;
-            }
-            else
-            {
-                res = UnityEngine.Object.FindObjectOfType(type);
-            }
-
-            return ILIntepreter.PushObject(__ret, __mStack, res);
 
         }
     }

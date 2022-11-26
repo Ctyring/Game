@@ -346,8 +346,7 @@ namespace ILRuntime.CLR.TypeSystem
 
                     if (memberwiseClone != null)
                     {
-                        var del = (Func<object, object>)Delegate.CreateDelegate(typeof(Func<object, object>), memberwiseClone);
-                        memberwiseCloneDelegate = (ref object t) => del(t);
+                        memberwiseCloneDelegate = (ref object t) => memberwiseClone.Invoke(t, null);
                     }
                     else
                     {
@@ -967,7 +966,7 @@ namespace ILRuntime.CLR.TypeSystem
                     }
 
                     argString = argString.Substring(0, argString.Length - 2);
-                    throw new Exception(string.Format("MakeGenericType failed : {0}<{1}>", clrType.FullName, argString));
+                    throw new Exception($"MakeGenericType failed : {clrType.FullName}<{argString}>");
                 }
 #endif
                 var res = new CLRType(newType, appdomain);

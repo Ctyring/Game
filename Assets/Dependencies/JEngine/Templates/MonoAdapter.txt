@@ -51,7 +51,6 @@
                             _isAwaking = false;
                             _awaked = true;
                             OnEnable();
-                            Start();
                         }
                     }
                 }
@@ -64,25 +63,18 @@
 
             IMethod _mStartMethod;
             bool _mStartMethodGot;
-            private bool started;
-    
+
             void Start()
             {
-                if (!_awaked || started)
-                {
-                    return;
-                }
-                            
                 if (!_mStartMethodGot)
                 {
                     _mStartMethod = instance.Type.GetMethod("Start", 0);
                     _mStartMethodGot = true;
                 }
-    
+
                 if (_mStartMethod != null)
                 {
                     appdomain.Invoke(_mStartMethod, instance, Tools.Param0);
-                    started = true;
                 }
             }
 
@@ -710,21 +702,9 @@
 
             IMethod _mOnRenderImageMethod;
             bool _mOnRenderImageMethodGot;
-            private bool _isCamera;
-            private bool _hasChecked;
+
             void OnRenderImage(RenderTexture src, RenderTexture dest)
             {
-                if (!_hasChecked)
-                {
-                    _isCamera = GetComponent<Camera>() != null;
-                    _hasChecked = true;
-                }
-
-                if (_isCamera)
-                {
-                    Graphics.Blit(src, dest);
-                }
-
                 if (instance != null)
                 {
                     if (!_mOnRenderImageMethodGot)

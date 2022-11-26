@@ -67,7 +67,7 @@ namespace JEngine.Helper
             appdomain.DelegateManager.RegisterMethodDelegate<String, String>();
             appdomain.DelegateManager.RegisterMethodDelegate<GameObject, GameObject>();
             appdomain.DelegateManager.RegisterMethodDelegate<Int32, Int32>();
-            
+
         }
     }
 }

@@ -109,7 +109,7 @@ namespace ILRuntime.Runtime.Intepreter.RegisterVM
                     }
                 }
                 cur.AddInstruction(i);
-                if (i.OpCode.Code == Code.Switch || i.OpCode.Code == Code.Throw || i.OpCode.OperandType == OperandType.InlineBrTarget || i.OpCode.OperandType == OperandType.ShortInlineBrTarget || i.OpCode.Code == Code.Endfinally)
+                if (i.OpCode.Code == Code.Switch || i.OpCode.Code == Code.Throw || i.OpCode.OperandType == OperandType.InlineBrTarget || i.OpCode.OperandType == OperandType.ShortInlineBrTarget)
                 {
                     if (cur.entry != null)
                     {

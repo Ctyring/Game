@@ -172,7 +172,6 @@ public class MonoBehaviourAdapter : CrossBindingAdaptor
                         isAwaking = false;
                         awaked = true;
                         OnEnable();
-                        Start();
                     }
                 }
             }
@@ -185,15 +184,9 @@ public class MonoBehaviourAdapter : CrossBindingAdaptor
 
         IMethod _mStartMethod;
         bool _mStartMethodGot;
-        private bool started;
 
-        void Start()
+        async void Start()
         {
-            if (!awaked || started)
-            {
-                return;
-            }
-            
             if (!isMonoBehaviour) return;
 
             if (!_mStartMethodGot)
@@ -205,7 +198,6 @@ public class MonoBehaviourAdapter : CrossBindingAdaptor
             if (_mStartMethod != null)
             {
                 _appdomain.Invoke(_mStartMethod, _instance, Tools.Param0);
-                started = true;
             }
         }
 
@@ -897,21 +889,11 @@ public class MonoBehaviourAdapter : CrossBindingAdaptor
 
         IMethod _mOnRenderImageMethod;
         bool _mOnRenderImageMethodGot;
-        private bool _isCamera;
-        private bool _hasChecked;
+
         void OnRenderImage(RenderTexture src, RenderTexture dest)
         {
-            if (!_hasChecked)
-            {
-                _isCamera = GetComponent<Camera>() != null;
-                _hasChecked = true;
-            }
-
-            if (_isCamera)
-            {
-                Graphics.Blit(src, dest);
-            }
             if (!isMonoBehaviour) return;
+
             if (_instance != null)
             {
                 if (!_mOnRenderImageMethodGot)

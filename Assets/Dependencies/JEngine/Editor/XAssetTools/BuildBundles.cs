@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using JEngine.Core;
 using libx;
 using UnityEditor;
+using Debug = UnityEngine.Debug;
 
 namespace JEngine.Editor
 {
@@ -55,6 +56,7 @@ namespace JEngine.Editor
             }
             else
             {
+                Debug.Log(Setting.EncryptPassword);
                 buildAct.Invoke(Setting.EncryptPassword);
             }
         }

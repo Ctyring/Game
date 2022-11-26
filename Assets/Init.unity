@@ -222,11 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b97ae374d27c0479dce9413bde907d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseURL: http://47.117.163.229/DLC/
+  baseURL: http://124.221.104.172/DLC
   gameScene: SelectPlayer.unity
-  development: 1
+  development: 0
   enableVFS: 1
-  offline: 1
+  offline: 0
 --- !u!4 &964396227
 Transform:
   m_ObjectHideFlags: 0
@@ -311,9 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e17ac5faf52bd5449e23a3fc475ceb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: AnimalHunter
-  useJIT: 1
-  usePdb: 0
+  key: developmentMode.
+  usePdb: 1
   debug: 1
 --- !u!1 &1468026855
 GameObject:

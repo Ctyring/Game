@@ -28,7 +28,6 @@ using JEngine.AntiCheat;
 using JEngine.Examples;
 using JEngine.Net;
 using UnityEngine;
-using Bomb;
 
 namespace HotUpdateScripts
 {

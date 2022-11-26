@@ -729,17 +729,9 @@ namespace ILRuntime.Runtime.Enviorment
                 if (ReturnType != null)
                     rt = domain.GetType(ReturnType);
                 if (ilType.FirstCLRBaseType != null)
-                    baseMethod = ilType.FirstCLRBaseType.BaseType.GetMethod(Name, param, null, rt);
+                    baseMethod = ilType.FirstCLRBaseType.GetMethod(Name, param, null, rt);
                 if (ilType.FirstCLRInterface != null)
-                {
-                    var implements = ilType.FirstCLRInterface.Implements;
-                    for (int i = 0; i < implements.Length; i++)
-                    {
-                        baseMethod = implements[i].GetMethod(Name, param, null, rt);
-                        if (baseMethod != null)
-                            break;
-                    }
-                }
+                    baseMethod = ilType.FirstCLRInterface.GetMethod(Name, param, null, rt);
                 if (baseMethod == null)
                     method = ilType.GetMethod(Name, param, null, rt);
             }
