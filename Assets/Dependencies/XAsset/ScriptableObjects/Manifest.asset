@@ -146,6 +146,9 @@ MonoBehaviour:
   - bundle: 68
     dir: 12
     name: Title.png
+  - bundle: 68
+    dir: 12
+    name: hunter.png
   - bundle: 89
     dir: 13
     name: gun.png
@@ -491,9 +494,9 @@ MonoBehaviour:
     len: 4347
     name: 9cee7239f0219e137c7482b2d2cb9bce.unity3d
   - deps: 
-    hash: 287014d23c2c38460b283f6c862eaad0
+    hash: 4bfcf0578da07c58658b16eafb616ba9
     id: 68
-    len: 80339
+    len: 426731
     name: 9d8ea8c5f674b933ccfdbdb22a741bad.unity3d
   - deps: 
     hash: 6964308ad62a519540e727473c634f89
@@ -626,9 +629,9 @@ MonoBehaviour:
     len: 5976
     name: ca50b636cd9d8bbee97ac3c960f91609.unity3d
   - deps: 0a000000160000001f00000044000000
-    hash: 6e244db0430e6e5be0bfdeec7719316d
+    hash: 1fa92c74b739121b2e4d57b86de88def
     id: 95
-    len: 62034
+    len: 62043
     name: d2e31b811bd77c7d8526cbe013b03c6c.unity3d
   - deps: 
     hash: 9709d5bb58d5ae61efbe065f32799410
@@ -661,9 +664,9 @@ MonoBehaviour:
     len: 13922
     name: de05c43bb5293b091188be5996ae79f1.unity3d
   - deps: 
-    hash: ae02866fbd55a86850f7a32b83369206
+    hash: 2b0e3b6b65dc69294747d3e6b18ced1e
     id: 102
-    len: 52242604
+    len: 52242596
     name: de318d056ae07a875bf329ffe7665717.unity3d
   - deps: 
     hash: 00c9644452db92895dd018cdfde21062

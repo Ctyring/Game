@@ -224,9 +224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseURL: http://124.221.104.172/DLC
   gameScene: SelectPlayer.unity
-  development: 0
+  development: 1
   enableVFS: 1
-  offline: 0
+  offline: 1
 --- !u!4 &964396227
 Transform:
   m_ObjectHideFlags: 0

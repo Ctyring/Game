@@ -6779,7 +6779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c1a8bab4d234998bcbc559bb58fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 7333118153818919625}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
@@ -6796,7 +6796,7 @@ MonoBehaviour:
   InputBufferDuration: 0
   OneWayPlatformsJumpCollisionOffDuration: 0.3
   MovingPlatformsJumpCollisionOffDuration: 0.05
-  AirJumpFeedbacks: {fileID: 0}
+  AirJumpFeedbacks: {fileID: 2606485149102162757}
   DoubleJumpFeedbacks: {fileID: 0}
   NumberOfJumpsLeft: 0
 --- !u!114 &114000012844973136
@@ -6851,7 +6851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd71e945bfcd4897b3a95607989c7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 6162502648411757994}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
@@ -38863,7 +38863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4924348448332825996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.2749996, z: 0}
+  m_LocalPosition: {x: -1.31, y: -3.85, z: 0}
   m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 3.333333}
   m_Children: []
   m_Father: {fileID: 4862376320749432}
@@ -83273,7 +83273,7 @@ MonoBehaviour:
     TargetBPM: 120
   DebugActive: 0
   Mode: 0
-  BoundParticleSystem: {fileID: 0}
+  BoundParticleSystem: {fileID: 5624304253675574531}
   RandomParticleSystems: []
   MoveToPosition: 0
   ActivateOnPlay: 0

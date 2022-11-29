@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  version: 34
+  version: 35
   scenesInBuild: []
   rules:
   - searchPath: Assets/HotUpdateResources/Controller
@@ -140,6 +140,8 @@ MonoBehaviour:
     path: Assets/HotUpdateResources/UI/Title/DemoTitle.png
   - bundle: 9d8ea8c5f674b933ccfdbdb22a741bad.unity3d
     path: Assets/HotUpdateResources/UI/Title/Title.png
+  - bundle: 9d8ea8c5f674b933ccfdbdb22a741bad.unity3d
+    path: Assets/HotUpdateResources/UI/Title/hunter.png
   - bundle: c0ee907809225984e087ab090cd1b295.unity3d
     path: Assets/HotUpdateResources/UI/Weapon/gun.png
   ruleBundles:
@@ -242,6 +244,7 @@ MonoBehaviour:
   - name: 9d8ea8c5f674b933ccfdbdb22a741bad.unity3d
     assets:
     - Assets/HotUpdateResources/UI/Title/DemoTitle.png
+    - Assets/HotUpdateResources/UI/Title/hunter.png
     - Assets/HotUpdateResources/UI/Title/Title.png
   - name: c0ee907809225984e087ab090cd1b295.unity3d
     assets:
