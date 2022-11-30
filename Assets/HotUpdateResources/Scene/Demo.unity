@@ -3832,6 +3832,7 @@ GameObject:
   - component: {fileID: 160827598}
   - component: {fileID: 160642544}
   - component: {fileID: 141451662}
+  - component: {fileID: 146928175}
   m_Layer: 5
   m_Name: AvatarHead
   m_TagString: Untagged
@@ -3839,6 +3840,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &146928175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146928174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef746d0ce9366d4d88d0502b5597f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heads:
+  - {fileID: 21300000, guid: f9b2e88e9272d6e4384f1bac8a1300b3, type: 3}
+  - {fileID: 21300002, guid: 9e09c275635a1704f8c95be03fc36589, type: 3}
+  - {fileID: 21300000, guid: b3d0b24de013ca645a7a6a4a0f08f3d3, type: 3}
+  - {fileID: 21300000, guid: 3adf4759e63536e4eba80aad30eb063a, type: 3}
+  currentHead: {fileID: 141451662}
 --- !u!1 &146943736
 GameObject:
   m_ObjectHideFlags: 0
