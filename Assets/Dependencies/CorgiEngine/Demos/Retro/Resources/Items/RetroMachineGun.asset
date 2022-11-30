@@ -32,10 +32,9 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Machine Gun
-  ShortDescription: Tearing my body all apart
-  Description: An automatic gun that fires bullets in rapid succession for as long
-    as the trigger is pressed.
+  ItemName: "\u81EA\u52A8\u67AA"
+  ShortDescription: "\u8EAB\u4F53\u6495\u88C2\u8005"
+  Description: "\u53EA\u8981\u6309\u4E0B\u6273\u673A\u5C31\u4F1A\u8FDE\u7EED\u5FEB\u901F\u53D1\u5C04\u5B50\u5F39\u7684\u81EA\u52A8\u67AA\u3002"
   Icon: {fileID: 21300002, guid: f3f4293ccdddd34468f58745d608416e, type: 3}
   Prefab: {fileID: 1472130053336478, guid: e9e447eaee7f2495bbcd41ddab5217b4, type: 3}
   DropProperties:

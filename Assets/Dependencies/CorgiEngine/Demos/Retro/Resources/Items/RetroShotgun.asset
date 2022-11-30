@@ -32,9 +32,9 @@ MonoBehaviour:
     DisplayUseButton: 1
     DisplayUnequipButton: 1
   Quantity: 1
-  ItemName: Shotgun
-  ShortDescription: Everybody jumps from the sound of the shotgun.
-  Description: A smooth-bore gun for firing small shot at short range.
+  ItemName: "\u9730\u5F39\u67AA"
+  ShortDescription: "Boom\uFF01"
+  Description: "\u4E00\u79CD\u7528\u4E8E\u8FD1\u8DDD\u79BB\u53D1\u5C04\u5927\u91CF\u5C0F\u5B50\u5F39\u7684\u9730\u5F39\u67AA\u3002"
   Icon: {fileID: 21300026, guid: f3f4293ccdddd34468f58745d608416e, type: 3}
   Prefab: {fileID: 1472130053336478, guid: 07b05b507c0d7416b95d884c8f8f9a89, type: 3}
   DropProperties:
